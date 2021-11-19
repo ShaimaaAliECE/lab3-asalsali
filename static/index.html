@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+        <title>Welcome Page</title>
+    </head>
+    <body>
+        <style>
+            body {
+                background-color: rgb(172, 167, 161);
+                justify-content: center;
+                margin-left: 45%;
+                margin-top: 10%;
+                margin-right: 45%;
+                margin-bottom: 10%;
+            }
+            button {
+                background-color: rgb(182, 160, 243);
+                border-radius: 7%;
+                justify-content: center;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+            }
+            input {
+                border-radius: 1.5%;
+                margin-bottom: 2%;
+            }
+        </style>
+        <div>
+            <h1>Doodle</h1>
+            <br />
+            <h5>Admin Username</h5>
+            <input id="#inputfield" />
+            <br />
+            <h5>Admin Password</h5>
+            <input id="#inputfield1" />
+            <br />
+            <button>Login</button>
+            <br />
+            <br />
+            <br />
+            <a href='/guest.html'>Continue As Guest</a>
+            <br />
+           
+        </div>
+        <script>
+            $(document).ready(
+                $(document).on('input', '#inputfield1', function() {
+                    let $field = $('#inputfield1')
+                    if (String($field.val())=='123') {
+                        $field.attr('href', '/admin.html')
+                    } else {
+                        $field.removeAttr('href')
+                    }
+                }),
+        );
+        </script>
+    </body>
+</html>

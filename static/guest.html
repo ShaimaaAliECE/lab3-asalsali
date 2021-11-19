@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+        <script type="text/javascript" src="../setTimes.js"></script>
+        <title>Guest Page</title>
+    </head>
+    <body>
+        <style>
+            body {
+                background-color: rgb(172, 167, 161);
+                justify-content: center;
+                margin-left: 45%;
+                margin-top: 10%;
+            }
+            button {
+                background-color: rgb(182, 160, 243);
+                border-radius: 7%;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+            }
+            input {
+                border-radius: 0.5%;
+                margin-bottom: 1%;
+            }
+        </style>
+         <div style="justify-content: center;">
+            <h4>Guest Name</h4>
+            <input id="#nameField" />
+            
+            <h4>Select TimeSlots</h4>
+            
+            <input type="checkbox" id="1" />
+      
+            <input type="checkbox" id="2" />
+         
+            <input type="checkbox" id="3"  />
+         
+            <input type="checkbox" id="4"  />
+           
+            <input type="checkbox" id="5"/>
+
+            <input type="checkbox" id="6" />
+            
+            <input type="checkbox" id="7" />
+           
+            <input type="checkbox" id="8" />
+         
+            <input type="checkbox" id="9" />
+  
+            <input type="checkbox" id="10" />
+    
+            <br />
+            <button id="setTimes">Save TimeSlots</button>
+        </div>
+        <script>
+            $(document).ready(
+                $(document).on('click', '#setTimes', function() {
+                    var guestName = String($("#nameField").val());
+                    if (!guestName) {
+                        alert("Please enter name");
+                    } else {
+                        // find all selected times and pass them to setTimes function
+                        let checks = $('input').toArray();
+                        let times = [];
+                        for (c in checks) {
+                            if (c.is(":checked")) {
+                                times.add(c.attr('id'))
+                            }
+                        }
+                        setTimes(false, times, guestName);
+                    }
+                })
+            )
+        </script>
+    </body>
+</html>
