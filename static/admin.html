@@ -61,9 +61,9 @@
             $(document).ready(
                 $(document).on('click', '#setTimes', function() {
                     // find all selected times and pass them to setTimes function
-                    let checks = $('input').toArray();
+                    let check = $('input').toArray();
                     let meetingslots = [];
-                    for (c in checks) {
+                    for (c in check) {
                         if (c.is(":checked")) {
                             meetingslots.add(c.attr('id'))
                         }

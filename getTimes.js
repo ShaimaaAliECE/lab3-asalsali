@@ -8,45 +8,45 @@ function getTimes() {
     
     conn.connect();
 
-    var adminTimes = '';
-    adminTimes += "<h1>Times Selected By Admin</h1>";
-    adminTimes += "<br />";
-    adminTimes += "<br />";
+    var TimesA = '';
+    TimesA += "<h1>Admin Selection</h1>";
+    TimesA += "<br />";
+    TimesA += "<br />";
 
     conn.query(
-        'SELECT * FROM AdminTimes',
+        'SELECT * FROM AdminSlot',
         (err, rows, fields) => {
             if (err) {
                 console.log(err);
             }
             for (r in rows) {
-                adminTimes += "<h4>" + r.AvailableTime + "</h4>";
-                adminTimes += "<br />";
+                TimesA += "<h4>" + r.AvailableTime + "</h4>";
+                TimesA += "<br />";
             }
         }
     );
 
-    var guestTimes = '';
-    guestTimes += "<br />"
-    guestTimes += "<h1>Times Selected By Guests</h1>";
-    guestTimes += "<br />";
+    var TimesG = '';
+    TimesG += "<br />"
+    TimesG += "<h1>Guest Selection</h1>";
+    TimesG += "<br />";
     guestTimes += "<br />";
 
     conn.query(
-        'SELECT * FROM GuestAvailabilities',
+        'SELECT * FROM GuestSlot',
         (err, rows, fields) => {
             if (err) {
                 console.log(err);
             }
             for (r in rows) {
-                guestTimes += "<h4>" + r.GuestName + ": " + r.AvailableTime + "</h4>";
-                guestTimes += "<br />"
+                TimesG += "<h4>" + r.GuestName + ": " + r.AvailableTime + "</h4>";
+                TimesG += "<br />"
             }
         }
     );
 
-    guestTimes += "<br />"
+    TimesG += "<br />"
 
-    return adminTimes + guestTimes;
+    return TimesA + TimesG;
 }
 module.exports = getTimes;

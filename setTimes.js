@@ -7,6 +7,7 @@ export default function setTimes(isAdmin, times, name) {
     });
     
     conn.connect();
+    
     // allow admin to change times in AdminTimes table
     if (isAdmin) {
         // delete all current available times
