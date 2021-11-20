@@ -34,26 +34,26 @@
             <h5>Admin Username</h5>
             <input id="#inputfield" />
             <br />
-            <h5>Admin Password</h5>
+            <h5>Admin Password (Password is ADMIN)</h5>
             <input id="#inputfield1" />
             <br />
             <button>Login</button>
-            <br />
+            <br />        
             <br />
             <br />
             <a href='/guest.html'>Continue As Guest</a>
             <br />
+
+            
            
         </div>
         <script>
             $(document).ready(
                 $(document).on('input', '#inputfield1', function() {
                     let $field = $('#inputfield1')
-                    if (String($field.val())=='123') {
-                        $field.attr('href', '/admin.html')
-                    } else {
-                        $field.removeAttr('href')
-                    }
+                    if (String($field.val())=='ADMIN') {
+                        $field.attr('href', '/admin.html') //grabs the password from the password field and creates a field attribute
+                    } 
                 }),
         );
         </script>

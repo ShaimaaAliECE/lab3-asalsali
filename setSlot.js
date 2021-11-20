@@ -1,4 +1,4 @@
-export default function setTimes(isAdmin, times, name) {
+export default function setSlot(isAdmin, slots, name) {
     let conn = mysql.createConnection({
         host: '34.72.236.12',
         user: 'root',
@@ -8,22 +8,23 @@ export default function setTimes(isAdmin, times, name) {
     
     conn.connect();
     
-    // allow admin to change times in AdminTimes table
+   
+
     if (isAdmin) {
-        // delete all current available times
+        // delete admin slots from admint table
         conn.query(
-            'DELETE FROM AdminTimes',
+            'DELETE FROM AdminSlot',
             (err, rows, fields) => {
                 if (err) {
                     console.log(err);
                 }
             }
         )
-        if (times.length > 0) {
-            // add all new available times
-            for (t in times) {
+        if (slots.length > 0) {
+                                 //add new available slots to admin table
+            for (s in slots) {
                 conn.query(
-                    'INSERT INTO AdminTimes VALUES ("' + t + '")',
+                    'INSERT INTO AdminSlot VALUES ("' + s + '")',
                     (err, rows, fields) => {
                         if (err) {
                             console.log(err);
@@ -33,20 +34,19 @@ export default function setTimes(isAdmin, times, name) {
             }
         }
     } else {
-        // allow guests to list their availability with their name
-        // delete all previous available times
-        conn.query(
-            'DELETE FROM GuestAvailabilities WHERE GuestName=' + name,
+        //deleting guest data from guest table
+        conn.query(  
+            'DELETE FROM GuestSlot WHERE GuestName=' + name,
             (err, rows, fields) => {
                 if (err) {
                     console.log(err);
                 }
             }
         )
-        if (times.length > 0) {
-            // add all new times
+        if (slots.length > 0) {  //adding guest data into guest table
+            
             conn.query(
-                'INSERT INTO GuestAvailabilities VALUES ("' + name + '", ' + t + '")',
+                'INSERT INTO GuestSlot VALUES ("' + name + '", ' + s + '")',
                 (err, rows, fields) => {
                     if (err) {
                         console.log(err);

@@ -1,11 +1,14 @@
-const getTimes = require('./getTimes');
+const getSlot= require('./getSlot');
 const express = require('express');
 
 const app = express();
 
-// serve static contents
+// static content access
 app.use(express.static('static'))
-// dynamic handling
+
+
+
+//handling dynamic access
 app.get('/admin', (req, res) => {
     res.redirect("admin.html");
 });
@@ -13,7 +16,7 @@ app.get('/guest', (req, res) => {
     res.redirect("guest.html");
 });
 app.get('/previous', (req, res) => {
-    // attach all previous submissions
+
     let content = getTimes();
     res.send(content);
 });

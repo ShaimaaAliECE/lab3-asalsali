@@ -26,9 +26,9 @@
                 margin-bottom: 1%;
             }
         </style>
-         <div style="justify-content: center;">
+        
             <h4>Guest Name</h4>
-            <input id="#nameField" />
+            <input id="#name" />
             
             <h4>Select TimeSlots</h4>
             
@@ -53,26 +53,22 @@
             <input type="checkbox" id="10" />
     
             <br />
-            <button id="setTimes">Save TimeSlots</button>
+            <button id="setSlot">Save TimeSlots</button>
         </div>
         <script>
             $(document).ready(
-                $(document).on('click', '#setTimes', function() {
-                    var guestName = String($("#nameField").val());
-                    if (!guestName) {
-                        alert("Please enter name");
-                    } else {
-                        // find all selected times and pass them to setTimes function
-                        let checks = $('input').toArray();
-                        let times = [];
+                $(document).on('click', '#setSlot', function() {
+                    var guestName = String($("#name").val());
+                        let checks = $('input').toArray();     //grabs select slots and adds to slot array to set the slots in the guest table
+                        let meetingslots = [];
                         for (c in checks) {
                             if (c.is(":checked")) {
-                                times.add(c.attr('id'))
+                                meetingslots.add(c.attr('id'))
                             }
                         }
-                        setTimes(false, times, guestName);
+                        setSlot(false, meetingslots, guestName);
                     }
-                })
+                )
             )
         </script>
     </body>

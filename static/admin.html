@@ -9,7 +9,7 @@
         <title>Admin Page</title>
     </head>
     <body>
-        <style>
+        <style> 
             body {
                 background-color: rgb(172, 167, 161);
                 justify-content: center;
@@ -21,14 +21,14 @@
                 border-radius: 7%;
                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
             }
-            input {
+            input { 
                 border-radius: 1.5%;
                 margin-bottom: 2%;
             }
         </style>
         
             <h3>Admin Name</h3>
-            <input id="#nameField" />
+            <input id="#name" />
             <br />
             
             <h3>Select TimeSlots</h3>
@@ -55,20 +55,20 @@
             <input type="checkbox" id="10" />
     
             <br />
-            <button id="setTimes">Save TimeSlots</button>
+            <button id="setSlot">Save TimeSlots</button>
         </div>
         <script>
             $(document).ready(
-                $(document).on('click', '#setTimes', function() {
-                    // find all selected times and pass them to setTimes function
+                $(document).on('click', '#setSlot', function() {
+            
                     let check = $('input').toArray();
-                    let meetingslots = [];
+                    let meetingslots = [];   //grabs select slots and adds to slot array to set the slots in the admin table
                     for (c in check) {
                         if (c.is(":checked")) {
                             meetingslots.add(c.attr('id'))
                         }
                     }
-                    setTimes(true, meetingslots, null);
+                    setSlot(true, meetingslots, null);
                 })
             )
         </script>

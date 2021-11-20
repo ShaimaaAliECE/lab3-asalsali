@@ -1,4 +1,4 @@
-function getTimes() {
+function getSlot() {
     let conn = mysql.createConnection({
         host: '34.72.236.12',
         user: 'root',
@@ -10,11 +10,11 @@ function getTimes() {
 
     var TimesA = '';
     TimesA += "<h1>Admin Selection</h1>";
-    TimesA += "<br />";
+    TimesA += "<br />";  
     TimesA += "<br />";
 
     conn.query(
-        'SELECT * FROM AdminSlot',
+        'SELECT * FROM AdminSlot', //
         (err, rows, fields) => {
             if (err) {
                 console.log(err);
@@ -49,4 +49,4 @@ function getTimes() {
 
     return TimesA + TimesG;
 }
-module.exports = getTimes;
+module.exports = getSlot;

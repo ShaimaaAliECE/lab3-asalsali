@@ -12,23 +12,19 @@ conn.connect();
 
 conn.query(
     'CREATE TABLE AdminSlot (AdminName varchar(10), Time varchar(1))',
-    (err, rows, fields) => {
+    (err, rows, fields) => { //create admin table
         if (err) {
             console.log(err);
-        } else {
-            console.log('Created Table for GuestSlot')
-        }
+        } 
     }
 )
 
 conn.query(
     'CREATE TABLE GuestSlot (GuestName varchar(10), Time varchar(1))',
-    (err, rows, fields) => {
+    (err, rows, fields) => {        //create guest table
         if (err) {
             console.log(err);
-        } else {
-            console.log('Created Table for GuestSlot')
-        }
+        } 
     }
 )
 
